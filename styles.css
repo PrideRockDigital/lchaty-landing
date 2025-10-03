@@ -9,3 +9,7 @@ body{font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;background:var(--bg);
 .signup input[type=email]{padding:.6rem;border:1px solid #cfd8e3;border-radius:6px}
 .signup button{background:var(--accent);color:white;border:none;padding:.6rem;border-radius:6px;cursor:pointer}
 .site-footer{text-align:center;padding:1rem;color:var(--muted)}
+
+/* honeypot field should be invisible to users but present for bots */
+.honeypot{display:none !important;}
+
