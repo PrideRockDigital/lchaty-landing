@@ -40,7 +40,8 @@ export default {
       }
     } catch (err) {
       try { console.error('Signup storage error:', err && err.stack ? err.stack : err) } catch (e) {}
-      return new Response('Failed to store signup', { status: 500 })
+      const msg = err && err.message ? err.message : String(err)
+      return new Response(`DEBUG: Failed to store signup: ${msg}`, { status: 500 })
     }
 
     return Response.redirect('/thank-you.html', 302)
