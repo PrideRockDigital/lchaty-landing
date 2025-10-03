@@ -23,4 +23,19 @@ This site can be hosted on Cloudflare Pages. To handle the signup form with a Wo
 
 For local development and CI, the `wrangler` CLI is recommended. Use a scoped deploy token for Workers; the parent repo contains helper scripts under `.github/cloudflare` for creating and rotating deploy tokens.
 
+Quick deploy with GitHub Actions
+
+1. Add a repository secret named `CLOUDFLARE_API_TOKEN` with a token that has `Workers` and `Account` permissions to publish scripts and manage routes.
+2. The repository includes a GitHub Actions workflow at `.github/workflows/deploy-worker.yml` which will run `wrangler publish` on pushes to `main`.
+3. The `wrangler.toml` in the repo binds the worker to `lchaty.com/api/subscribe` — ensure the Cloudflare account (account_id in the file) has that zone.
+
+Local test using wrangler (after installing wrangler):
+
+```powershell
+# Authenticate wrangler (Interactive) and publish locally:
+wrangler login
+wrangler publish
+```
+
+
 Contact: info@lchaty.com

@@ -1,0 +1,10 @@
+name = "lchaty-subscribe"
+type = "javascript"
+account_id = "978ce9da162df0978b71cdf344fa8126"
+compatibility_date = "2025-10-03"
+main = "workers/form_worker.js"
+
+# Route to bind the worker to your custom domain. When publishing with wrangler
+# this route will be created/updated. Make sure the zone for lchaty.com is
+# available in the Cloudflare account belonging to the account_id above.
+routes = ["lchaty.com/api/subscribe"]
