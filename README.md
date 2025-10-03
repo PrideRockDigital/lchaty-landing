@@ -37,5 +37,22 @@ wrangler login
 wrangler publish
 ```
 
+Using D1 for signups
+
+This repo includes a D1 migration `migrations/001_create_signups.sql` and the worker is configured to use a D1 binding named `LCHATY_BETA` (database name `lchaty_beta`). To create and migrate the database:
+
+1. Create a D1 database in the Cloudflare dashboard named `lchaty_beta` (or use `wrangler d1 create`).
+2. Bind the D1 database to the worker in `wrangler.toml` (this repo sets binding `LCHATY_BETA`).
+3. Apply the migration using wrangler:
+
+```powershell
+# from repo root
+wrangler d1 put-migration --name create_signups migrations/001_create_signups.sql
+wrangler d1 publish-migration --database-name lchaty_beta --migration-name create_signups
+```
+
+Note: `wrangler d1` commands require the latest wrangler beta in some setups. If you prefer, create the table manually in the dashboard SQL console using the SQL in `migrations/001_create_signups.sql`.
+
+
 
 Contact: info@lchaty.com

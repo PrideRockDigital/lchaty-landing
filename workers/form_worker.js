@@ -25,11 +25,27 @@ async function handleRequest(request) {
     return new Response('Missing email', { status: 400 })
   }
 
-  // Use a timestamp-based key to avoid collisions
-  const key = `signup:${Date.now()}:${Math.random().toString(36).slice(2,8)}`
+  // Try to write into a D1 database if bound (LCHATY_BETA). If not, fall back to KV.
   try {
-    // SIGNUPS is a KV namespace bound in your worker environment
-    await SIGNUPS.put(key, JSON.stringify({ email, created_at: new Date().toISOString() }))
+    if (typeof LCHATY_BETA !== 'undefined' && LCHATY_BETA) {
+      // Upsert using a transaction: insert or update opted_in if existing
+      const insertSql = `INSERT INTO signups (email, signup_date, opted_in, beta_approved, notes) VALUES (?, CURRENT_TIMESTAMP, ?, ?, ?)`
+      try {
+        await LCHATY_BETA.prepare(insertSql).bind(email, 1, 0, '').run()
+      } catch (e) {
+        // If unique constraint fails, perform an update instead
+        const updateSql = `UPDATE signups SET signup_date = CURRENT_TIMESTAMP, opted_in = 1 WHERE email = ?`
+        await LCHATY_BETA.prepare(updateSql).bind(email).run()
+      }
+    } else {
+      // Use a timestamp-based key to avoid collisions for KV fallback
+      const key = `signup:${Date.now()}:${Math.random().toString(36).slice(2,8)}`
+      if (typeof SIGNUPS !== 'undefined' && SIGNUPS) {
+        await SIGNUPS.put(key, JSON.stringify({ email, created_at: new Date().toISOString() }))
+      } else {
+        return new Response('No storage configured', { status: 500 })
+      }
+    }
   } catch (err) {
     return new Response('Failed to store signup', { status: 500 })
   }

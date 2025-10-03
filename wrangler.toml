@@ -8,3 +8,7 @@ main = "workers/form_worker.js"
 # this route will be created/updated. Make sure the zone for lchaty.com is
 # available in the Cloudflare account belonging to the account_id above.
 routes = ["lchaty.com/api/subscribe"]
+
+[[d1_databases]]
+binding = "LCHATY_BETA"
+database_name = "lchaty_beta"
