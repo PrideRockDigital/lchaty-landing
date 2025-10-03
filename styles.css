@@ -1,0 +1,11 @@
+﻿:root{--bg:#f7f8fb;--accent:#0066cc;--muted:#666}
+body{font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;background:var(--bg);color:#111;margin:0;padding:0}
+.site-header{background:white;padding:3rem 1.25rem;text-align:center;border-bottom:1px solid #e6e9ef}
+.site-header h1{margin:0;font-size:2rem}
+.content{max-width:720px;margin:2rem auto;padding:0 1rem}
+.about p{color:var(--muted)}
+.signup{background:white;padding:1.25rem;border-radius:8px;border:1px solid #e6e9ef}
+.signup form{display:flex;flex-direction:column;gap:.5rem}
+.signup input[type=email]{padding:.6rem;border:1px solid #cfd8e3;border-radius:6px}
+.signup button{background:var(--accent);color:white;border:none;padding:.6rem;border-radius:6px;cursor:pointer}
+.site-footer{text-align:center;padding:1rem;color:var(--muted)}

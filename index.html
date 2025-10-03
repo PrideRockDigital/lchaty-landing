@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>lChaty — In development</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>lChaty</h1>
+    <p>Hybrid local + cloud AI chat platform — currently in development.</p>
+  </header>
+
+  <main class="content">
+    <section class="about">
+      <h2>What is lChaty?</h2>
+      <p>lChaty is a hybrid AI chat platform combining local and cloud models, with edge APIs and a modern web UI. We're building features for private, fast, and extensible AI assistants.</p>
+    </section>
+
+    <section class="signup">
+      <h2>Get updates</h2>
+      <p>Enter your email to receive occasional development updates and early access invites.</p>
+
+      <!-- FormSubmit.co used as a placeholder form handler. Replace with your preferred provider or backend. -->
+      <form action="https://formsubmit.co/info@lchaty.com" method="POST">
+        <!-- honeypot to reduce spam -->
+        <input type="text" name="_honey" style="display:none">
+        <!-- redirect after submit -->
+        <input type="hidden" name="_next" value="https://lchaty.org/thank-you.html">
+        <input type="hidden" name="_subject" value="New lChaty mailing list signup">
+
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" required placeholder="you@example.com">
+
+        <button type="submit">Join the mailing list</button>
+      </form>
+
+      <p class="contact">Or email us at <a href="mailto:info@lchaty.com">info@lchaty.com</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Project in development — © PrideRockDigital</small>
+  </footer>
+</body>
+</html>
