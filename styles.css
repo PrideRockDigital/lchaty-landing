@@ -1,15 +1,31 @@
 ﻿:root{--bg:#f7f8fb;--accent:#0066cc;--muted:#666}
-body{font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;background:var(--bg);color:#111;margin:0;padding:0}
-.site-header{background:white;padding:3rem 1.25rem;text-align:center;border-bottom:1px solid #e6e9ef}
-.site-header h1{margin:0;font-size:2rem}
-.content{max-width:720px;margin:2rem auto;padding:0 1rem}
-.about p{color:var(--muted)}
-.signup{background:white;padding:1.25rem;border-radius:8px;border:1px solid #e6e9ef}
-.signup form{display:flex;flex-direction:column;gap:.5rem}
-.signup input[type=email]{padding:.6rem;border:1px solid #cfd8e3;border-radius:6px}
-.signup button{background:var(--accent);color:white;border:none;padding:.6rem;border-radius:6px;cursor:pointer}
-.site-footer{text-align:center;padding:1rem;color:var(--muted)}
+
+body{font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#f4f7fb 0%, #f7f8fb 40%);color:#111;margin:0;padding:0;line-height:1.45}
+.site-header{padding:4rem 1.25rem;text-align:center;background:linear-gradient(135deg,#0f172a 0%, #0b3a66 60%);color:white}
+.hero-inner{max-width:900px;margin:0 auto}
+.site-header h1{margin:0;font-size:2.6rem;letter-spacing:0.5px}
+.tagline{opacity:0.9;margin-top:.5rem}
+.badge{display:inline-block;margin-top:1rem;background:linear-gradient(90deg,#ff7a18,#af002d);color:white;padding:.35rem .75rem;border-radius:999px;font-weight:600;box-shadow:0 6px 20px rgba(175,0,45,0.18)}
+.content{max-width:920px;margin:2rem auto;padding:0 1rem}
+.about p{color:var(--muted);font-size:1.05rem}
+.signup{background:white;padding:1.5rem;border-radius:14px;border:1px solid rgba(15,23,42,0.06);box-shadow:0 10px 30px rgba(15,23,42,0.06)}
+.signup form{display:flex;flex-direction:column;gap:.6rem}
+.signup input[type=email]{padding:.9rem;border:1px solid #e4e9f0;border-radius:10px;font-size:1rem}
+.signup label{font-weight:600}
+.signup button{background:linear-gradient(90deg,#0066ff,#0077ff);color:white;border:none;padding:.85rem;border-radius:10px;cursor:pointer;font-weight:700;transition:transform .15s ease,box-shadow .15s ease;box-shadow:0 6px 18px rgba(3,102,214,0.18)}
+.signup button:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(3,102,214,0.18)}
+.signup button:active{transform:translateY(0)}
+.site-footer{text-align:center;padding:1rem;color:var(--muted);margin-top:2rem}
+
+/* visually-hidden utility for screen readers */
+.sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
 
 /* honeypot field should be invisible to users but present for bots */
 .honeypot{display:none !important;}
+
+/* small responsive tweaks */
+@media (min-width:900px){
+	.site-header{padding:5rem 1.25rem}
+	.site-header h1{font-size:3.25rem}
+}
 

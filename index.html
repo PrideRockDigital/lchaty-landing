@@ -8,8 +8,11 @@
 </head>
 <body>
   <header class="site-header">
-    <h1>lChaty</h1>
-    <p>A family-first AI assistant — currently in development.</p>
+    <div class="hero-inner">
+      <h1>lChaty</h1>
+      <p class="tagline">A family-first AI assistant — growing with your household.</p>
+      <div class="badge">Early access • Join the list</div>
+    </div>
   </header>
 
   <main class="content">
@@ -33,10 +36,9 @@
   <!-- The form posts to a Cloudflare Worker endpoint (example) or any provider you prefer. -->
   <!-- Replace the action with your deployed Worker URL or an external form provider. -->
   <form action="/api/subscribe" method="POST">
-        <!-- honeypot to reduce spam -->
-        <label class="honeypot" aria-hidden="true" tabindex="-1">Leave this field empty
-          <input type="text" name="_honey" class="honeypot" />
-        </label>
+        <!-- honeypot to reduce spam (hidden from users) -->
+        <label for="_honey" class="sr-only">Leave this field empty</label>
+        <input id="_honey" name="_honey" type="text" class="honeypot" autocomplete="off" tabindex="-1" aria-hidden="true" />
         <!-- redirect after submit -->
   <input type="hidden" name="_next" value="/thank-you.html">
   <input type="hidden" name="_subject" value="New lChaty mailing list signup">
@@ -49,7 +51,7 @@
 
       <p class="contact">Or email us at <a href="mailto:info@lchaty.com">info@lchaty.com</a></p>
 
-      <p class="privacy"><strong>Privacy:</strong> We only collect the email address you provide for the mailing list. We will not sell or share your personal information. For production use we recommend storing signups in a secure database or using a verified mailing service (Mailchimp, ConvertKit, etc.).</p>
+  <p class="privacy"><strong>Privacy:</strong> We only collect the email address you provide for the mailing list. We will not sell or share your personal information.</p>
     </section>
   </main>
 
