@@ -1,5 +1,4 @@
 name = "lchaty-subscribe"
-type = "javascript"
 account_id = "978ce9da162df0978b71cdf344fa8126"
 compatibility_date = "2025-10-03"
 main = "workers/form_worker.js"
@@ -9,6 +8,5 @@ main = "workers/form_worker.js"
 # available in the Cloudflare account belonging to the account_id above.
 routes = ["lchaty.com/api/subscribe"]
 
-[[d1_databases]]
-binding = "LCHATY_BETA"
-database_name = "lchaty_beta"
+# Note: D1 database binding will be added after creation. wrangler expects a
+# database_id value, which we will populate once the database is created.
