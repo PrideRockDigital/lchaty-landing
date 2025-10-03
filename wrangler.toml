@@ -10,3 +10,8 @@ routes = ["lchaty.com/api/subscribe"]
 
 # Note: D1 database binding will be added after creation. wrangler expects a
 # database_id value, which we will populate once the database is created.
+
+[[d1_databases]]
+binding = "LCHATY_BETA"
+database_name = "lchaty_beta"
+database_id = "55bb593c-0f0e-4b03-990f-61f6e1890717"
