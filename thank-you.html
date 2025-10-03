@@ -1,2 +1,70 @@
 ﻿<!doctype html>
-<html><head><meta charset="utf-8"><title>Thanks</title></head><body><h1>Thanks — you're on the list</h1><p>We will email you when we have updates.</p></body></html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Thank you — lChaty</title>
+	<link rel="stylesheet" href="styles.css" />
+	<style>
+		/* Minimal page-specific styles to keep the file self-contained */
+		.thank-hero{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 1rem}
+		.checkmark{width:120px;height:120px;border-radius:999px;background:linear-gradient(90deg,#22c55e,#16a34a);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(16,185,129,0.15);margin-bottom:1rem}
+		.checkmark svg{width:64px;height:64px;filter:drop-shadow(0 6px 16px rgba(16,185,129,0.18))}
+		.thank-title{font-size:1.6rem;margin:0 0 .25rem}
+		.thank-sub{color:var(--muted);margin:0 0 1.25rem}
+		.thanks-actions{display:flex;gap:.75rem}
+		.btn-ghost{background:transparent;border:1px solid rgba(15,23,42,0.08);padding:.6rem .9rem;border-radius:8px}
+		/* small confetti effect */
+		.confetti{position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;overflow:hidden}
+		.confetti span{position:absolute;display:block;width:10px;height:14px;opacity:0;transform-origin:center;animation:confetti-fall 1500ms linear forwards}
+		@keyframes confetti-fall{0%{transform:translateY(-20vh) rotate(0deg);opacity:1}100%{transform:translateY(120vh) rotate(720deg);opacity:0}}
+	</style>
+</head>
+<body>
+	<header class="site-header">
+		<div class="hero-inner">
+			<h1>lChaty</h1>
+		</div>
+	</header>
+
+	<main class="content">
+		<section class="signup thank-hero">
+			<div class="checkmark" aria-hidden="true">
+				<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M20 6L9 17l-5-5" />
+				</svg>
+			</div>
+			<h2 class="thank-title">Thanks — you're on the list!</h2>
+			<p class="thank-sub">We’ll email you when there’s an update and when early access opens. In the meantime, feel free to explore the site.</p>
+
+			<div class="thanks-actions">
+				<a class="signup button" href="/" role="button">Back to home</a>
+				<a class="btn-ghost" href="mailto:info@lchaty.com">Contact us</a>
+			</div>
+		</section>
+	</main>
+
+	<div class="confetti" id="confetti"></div>
+
+	<script>
+		// Tiny confetti generator (no external libs)
+		(function(){
+			const colors = ['#ff7a18','#ffb84d','#22c55e','#06b6d4','#7c3aed']
+			const container = document.getElementById('confetti')
+			for(let i=0;i<36;i++){
+				const el = document.createElement('span')
+				el.style.left = Math.random()*100 + '%'
+				el.style.background = colors[i%colors.length]
+				el.style.width = (6 + Math.random()*10)+'px'
+				el.style.height = (8 + Math.random()*12)+'px'
+				el.style.top = (-10 - Math.random()*20) + 'vh'
+				el.style.animationDelay = (Math.random()*500)+'ms'
+				el.style.transform = 'rotate('+ (Math.random()*360) +'deg)'
+				container.appendChild(el)
+			}
+			// remove after animation completes
+			setTimeout(()=>container.remove(), 2500)
+		})()
+	</script>
+</body>
+</html>
